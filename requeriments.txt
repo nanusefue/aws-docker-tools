@@ -1,0 +1,7 @@
+awscli
+awsebcli
+boto3
+troposphere
+awacs
+ansible
+boto

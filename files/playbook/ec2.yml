@@ -1,0 +1,14 @@
+- hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+  tasks:
+    - name: launch ansible cloudformation example
+      cloudformation:
+        profile: dev
+        stack_name: "ansible-cloudformation"
+        state: "present"
+        region: "eu-west-1"
+        disable_rollback: true
+        template: "../output/ec2.json"
+        tags:
+          Stack: "ansible-cloudformation"
