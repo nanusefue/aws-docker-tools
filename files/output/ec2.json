@@ -1,9 +1,9 @@
 {
     "Resources": {
-        "myinstance": {
+        "ec2user": {
             "Properties": {
                 "ImageId": "ami-d834aba1",
-                "InstanceType": "t2.micro"
+                "InstanceType": "t3.micro"
             },
             "Type": "AWS::EC2::Instance"
         }
