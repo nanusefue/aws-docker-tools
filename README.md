@@ -44,12 +44,15 @@ Structure of the files:
 ```
 files
  cloudformation
-  ec2.py
+   ec2.py
  output
-  ec2.json
+   ec2.json
+ playbook
+   ec2.yml
 ```
 
 Docker run
+
 ```bash
 docker run -v "$(pwd)/files:/files" aws-docker-tools python \ 
 files/cloudformation/ec2.py > files/output/ec2.json
