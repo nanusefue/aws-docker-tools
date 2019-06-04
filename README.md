@@ -31,6 +31,26 @@ Different examples for the use of the following tools
 
 #### ANSIBLE
 
+
+Dockerfile.profile
+
+```bash
+
+FROM nanusefue/aws-tools
+
+RUN aws configure set profile.dev.aws_access_key_id XXXXXXXXX
+RUN aws configure set profile.dev.aws_secret_access_key XXXXXXXX
+RUN aws configure set profile.dev.region eu-west-1
+
+ENTRYPOINT ["bash"]
+```
+
+Run docker with profile
+```bash
+
+docker build --rm -f "Dockerfile.dev" -t aws-tools-profile:latest .
+```
+
 ```bash
 docker run -v "$(pwd)/files/playbook:/files/playbook/" \ 
 -v "$(pwd)/	files/output:/files/output/" \

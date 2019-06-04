@@ -1,8 +1,0 @@
-FROM nanusefue/aws-docker:lastest
-
-RUN aws configure set profile.playground.aws_access_key_id XXXXXXXXX
-RUN aws configure set profile.playground.aws_secret_access_key XXXXXXXX
-RUN aws configure set profile.playground.region eu-west-1
-
-ENTRYPOINT ["bash"]
-

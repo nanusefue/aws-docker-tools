@@ -9,6 +9,6 @@
         state: "present"
         region: "eu-west-1"
         disable_rollback: true
-        template: "../output/ec2.json"
+        template: "files/output/ec2.json"
         tags:
           Stack: "ansible-cloudformation"
