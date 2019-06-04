@@ -31,7 +31,7 @@ Different examples for the use of the following tools
 
 #### ANSIBLE
 
-```
+```bash
 	docker run -v "$(pwd)/files/playbook:/files/playbook/" \ 
 	-v "$(pwd)/	files/output:/files/output/" \
 	aws-docker-tools ansible-playbook /files/playbook/ec2.yml
@@ -51,14 +51,14 @@ files
 ```
 
 Docker run
-```
+```bash
 	docker run -v "$(pwd)/files:/files" aws-docker-tools python \ 
 	files/cloudformation/ec2.py > files/output/ec2.json
 ```
 
 ec2.py
 
-```
+```python
 import json
 from troposphere import Ref, Template
 import troposphere.ec2 as ec2
@@ -72,7 +72,7 @@ print(t.to_json())
 
 ec2.json
 
-```
+```json
 	{
 	    "Resources": {
 		"ec2user": {
@@ -87,7 +87,7 @@ ec2.json
 ```
 
 #### PACKER
-```
+```bash
 	docker run -v "$(pwd)/files:/files" -v "$(pwd)/files/output:/files/output" \
 	aws-docker-tools packer
 ```
