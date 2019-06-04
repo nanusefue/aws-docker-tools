@@ -27,6 +27,8 @@ The Elastic Beanstalk Command Line Interface (EB CLI) is a command line client t
 
 The troposphere library allows for easier creation of the AWS CloudFormation JSON by writing Python code to describe the AWS resources. troposphere also includes some basic support for OpenStack resources via Heat.
 
+Different examples for the use of the following tools
+
 #### ANSIBLE
 
 ```
@@ -37,10 +39,38 @@ The troposphere library allows for easier creation of the AWS CloudFormation JSO
 
 #### CLOUDFORMATION
 
+Structure of the files:
+
+```
+files
+	cloudformation
+		ec2.py
+	output
+		ec2.json
+
+```
+
+Docker run
 ```
 	docker run -v "$(pwd)/files:/files" aws-docker-tools python \ 
 	files/cloudformation/ec2.py > files/output/ec2.json
 ```
+
+ec2.py
+
+```
+import json
+from troposphere import Ref, Template
+import troposphere.ec2 as ec2
+t = Template()
+instance = ec2.Instance("ec2user")
+instance.ImageId = "ami-d834aba1"
+instance.InstanceType = "t3.micro"
+t.add_resource(instance)
+print(t.to_json())
+```
+
+ec2.json
 
 ```
 	{
