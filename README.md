@@ -31,6 +31,26 @@ Different examples for the use of the following tools
 
 #### ANSIBLE
 
+Ansible Playbook
+
+```yaml
+
+- hosts: "localhost"
+  connection: "local"
+  gather_facts: false
+  tasks:
+    - name: launch ansible cloudformation example
+      cloudformation:
+        profile: dev
+        stack_name: "ansible-cloudformation"
+        state: "present"
+        region: "eu-west-1"
+        disable_rollback: true
+        template: "/files/output/ec2.json"
+        tags:
+          Stack: "ansible-cloudformation"
+```
+
 
 Dockerfile.profile
 
@@ -48,8 +68,7 @@ ENTRYPOINT ["bash"]
 Run docker with profile
 ```bash
 
-docker build --rm -f "Dockerfile.dev" -t aws-tools-profile:latest .
-```
+ docker run -v "$(pwd)/files:/files"  aws-tools-profile ansible-playbook files/playbook/ec2.yml ```
 
 ```bash
 docker run -v "$(pwd)/files/playbook:/files/playbook/" \ 
