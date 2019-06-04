@@ -66,14 +66,9 @@ ENTRYPOINT ["bash"]
 ```
 
 Run docker with profile
-```bash
-
- docker run -v "$(pwd)/files:/files"  aws-tools-profile ansible-playbook files/playbook/ec2.yml ```
 
 ```bash
-docker run -v "$(pwd)/files/playbook:/files/playbook/" \ 
--v "$(pwd)/	files/output:/files/output/" \
-aws-docker-tools ansible-playbook /files/playbook/ec2.yml
+ docker run -v "$(pwd)/files:/files"  aws-tools-profile ansible-playbook files/playbook/ec2.yml 
 ```
 
 #### CLOUDFORMATION
