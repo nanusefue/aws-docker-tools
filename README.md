@@ -27,11 +27,24 @@ The Elastic Beanstalk Command Line Interface (EB CLI) is a command line client t
 
 The troposphere library allows for easier creation of the AWS CloudFormation JSON by writing Python code to describe the AWS resources. troposphere also includes some basic support for OpenStack resources via Heat.
 
-Different examples for the use of the following tools
+Different examples for the use of the following tools:
+
+
+#### Structure of the files:
+
+```
+files
+ cloudformation
+   ec2.py
+ output
+   ec2.json
+ playbook
+   ec2.yml
+```
 
 #### ANSIBLE
 
-Ansible Playbook
+**Ansible Playbook**
 
 ```yaml
 
@@ -52,7 +65,7 @@ Ansible Playbook
 ```
 
 
-Dockerfile.profile
+**Dockerfile.profile**
 
 ```bash
 
@@ -63,9 +76,17 @@ RUN aws configure set profile.dev.aws_secret_access_key XXXXXXXX
 RUN aws configure set profile.dev.region eu-west-1
 
 ENTRYPOINT ["bash"]
+
 ```
 
-Run docker with profile
+**Build your own image usign you aws credentials.**
+
+```bash
+docker build --rm -f "Dockerfile.profile" -t aws-docker-tools:latest .
+```
+
+
+**Run docker with profile**
 
 ```bash
  docker run -v "$(pwd)/files:/files"  aws-tools-profile ansible-playbook files/playbook/ec2.yml 
@@ -73,26 +94,14 @@ Run docker with profile
 
 #### CLOUDFORMATION
 
-Structure of the files:
-
-```
-files
- cloudformation
-   ec2.py
- output
-   ec2.json
- playbook
-   ec2.yml
-```
-
-Docker run
+**Docker run**
 
 ```bash
 docker run -v "$(pwd)/files:/files" aws-docker-tools python \ 
 files/cloudformation/ec2.py > files/output/ec2.json
 ```
 
-ec2.py
+**ec2.py**
 
 ```python
 import json
@@ -106,7 +115,7 @@ t.add_resource(instance)
 print(t.to_json())
 ```
 
-ec2.json
+**ec2.json**
 
 ```json
 {
