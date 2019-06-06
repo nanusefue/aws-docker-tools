@@ -82,7 +82,7 @@ ENTRYPOINT ["bash"]
 **Build your own image usign you aws credentials.**
 
 ```bash
-docker build --rm -f "Dockerfile.profile" -t aws-docker-tools:latest .
+docker build --rm -f "Dockerfile.profile" -t  aws-tools-profile:latest .
 ```
 
 
