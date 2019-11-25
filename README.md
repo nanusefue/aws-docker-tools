@@ -3,14 +3,14 @@
 
 #### Description
 
-´´´
+```
   awscli==1.16.290
   awsebcli==3.15.3
   boto3==1.10.26
   troposphere==2.5.2
   awacs==0.9.6
   ansible==2.9.1
-´´´
+```
 
 - [Ansible](https://www.ansible.com/)
 
