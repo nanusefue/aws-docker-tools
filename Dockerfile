@@ -12,3 +12,4 @@ RUN curl -Os https://releases.hashicorp.com/packer/1.4.1/packer_1.4.1_linux_amd6
 RUN unzip packer_1.4.1_linux_amd64.zip 
 RUN mv packer /usr/local/bin/ 
 RUN rm packer_1.4.1_linux_amd64.zip
+RUN rm requeriments.txt
